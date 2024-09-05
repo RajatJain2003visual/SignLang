@@ -1,0 +1,521 @@
+@font-face {
+    font-family: 'Fungis';
+    src: url('FUNGIS-Regular 400.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fungis';
+    src: url('FUNGIS-Bold 700.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fungis';
+    src: url('FUNGIS-Heavy 700.otf') format('opentype');
+    font-weight: normal;
+    font-style: heavy;
+}
+
+@font-face {
+    font-family: 'Logo';
+    src: url('BRITTANYSIGNATURE.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+body {
+    font-family: Fungis,Helvetica,'Nunito', sans-serif;
+    /* background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+     */
+    background: #e4e4e4;
+    /* background: url(4853433.jpg); */
+    background: url(image.jpg);
+    background-size: cover;
+    font-weight: normal;
+    font-style: normal;
+    color: #333;
+}
+
+.navbar {
+    border-bottom: 2px solid #e4e4e4;
+    letter-spacing: 2px;
+}
+
+#logo{
+    font-family: Logo;
+    color: #23a3da;
+}
+.navbar {
+    display: flex;
+    justify-content: center; /* Center the navbar content */
+    align-items: center; /* Vertically align the items */
+    background-color: #343a40; /* Same background color */
+}
+
+.navbar-brand {
+    margin-left: auto;
+    margin-right: auto; /* Center the brand inside the navbar */
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px; /* Add letter spacing if needed */
+    color: white; /* Ensure the text color is visible */
+}
+
+.navbar-dark .navbar-brand {
+    color: #ffffff; /* Keep text white */
+}
+
+
+/* #videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+} */
+
+#videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    position: relative; /* Ensure the layout is maintained */
+    height: calc(60vh - 150px); /* Set height to fill available space, adjust the 150px based on the button-container height */
+    align-items: stretch; /* Ensure video frames take the full available height */
+}
+
+#video-wrapper {
+    position: relative; /* Keeps #waiting positioned relative to this wrapper */
+    z-index: 1; /* Ensure it’s below the button container */
+}
+
+.video-player {
+    z-index: 1;
+    background-color: rgb(26, 26, 26);
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    height: 100%; /*Ensure video frames stretch to fill the available height*/
+    width: 100%;/* Make sure they fill the width*/
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    
+}
+
+#video-wrapper {
+    position: relative;
+}
+
+#waiting {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 240px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745; /* Green for Call */
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red for Hangup */
+    border: none;
+}
+
+.btn-success:hover, .btn-danger:hover {
+    transform: scale(1.05);
+}
+
+#capture-frame {
+    background-color: #6c757d; /* Gray for Capture Frame */
+    color: #fff;
+    border: none;
+}
+
+#capture-frame:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Video Load Animation */
+.video-player {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Ensure smooth transitions */
+.video-player {
+    
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+
+.video-player:hover {
+    transform: scale(1.02);
+    /* border: 3px solid rgba(255, 255, 255, 0.6); */
+    transition: transform 0.3s ease;
+    z-index: 1;
+ }
+
+/* Waiting Message Animation */
+#waiting {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.button-container {
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 15px; /* Padding inside the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px); /* Gaussian blur effect */
+    border: 1px solid rgba(255, 255, 255, 0); /* Light border to enhance glass effect */
+    /* position: relative; Ensure it stays in place */
+    z-index: 100; /* Keeps it above other elements */
+    /* Adding a margin to keep it centered */
+    /* margin-top: 11vw; */
+    /* Add padding if needed to compensate for any shifting */
+    /* padding: 20px; */
+    /* position: fixed; */
+    top: 70vh;
+    position: fixed;
+}
+
+
+/* Tooltip styles */
+.btn::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -30px; /* Adjust to position the tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Show tooltip after 2 seconds of hover */
+.btn:hover::after {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px); /* Slide tooltip slightly up */
+    transition-delay: 700ms; /* Delay before showing tooltip */
+}
+
+/* Tooltip for the video player */
+#videos {
+    position: relative; /* Ensures the tooltip is positioned relative to the container */
+}
+
+
+/* Tooltip for the video player */
+#videos {
+    position: relative; /* Ensures the tooltip is positioned relative to the container */
+}
+
+/* Tooltip styles for the video area */
+#videos::after {
+    content: attr(data-label); /* Uses the data-label from the HTML */
+    position: absolute;
+    top: -30px; /* Adjusts position above the video area */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Show tooltip after 2 seconds of hover */
+#videos:hover::after {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px); /* Slide tooltip slightly up */
+    transition-delay: 700ms; /* Delay before showing tooltip */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Button Press Effect */
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Video Player Hover Animation */
+.video-player {
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Smooth Transition for Waiting Message */
+#waiting {
+    transition: opacity 0.5s ease;
+}
+
+#waiting.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Button Loading State */
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0) rotate(0); }
+    25% { transform: translateX(-1px) rotate(-5deg); }
+    50% { transform: translateX(1px) rotate(5deg); }
+    75% { transform: translateX(-1px) rotate(-5deg); }
+    100% { transform: translateX(0) rotate(0); }
+    /* 0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); } */
+}
+
+.shake {
+    animation: shake 0.5s; /* Add the animation */
+    animation-timing-function: ease-in-out; /* Smooth transition */
+}
+
+
+.more-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column; /* Stack the button and expanded section vertically */
+    align-items: flex-end; /* Align items to the end */
+}
+
+.more-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-end; /* Align items to the end */
+    gap: 10px; /* Space between buttons */
+}
+
+.more-button, .info-button {
+    background-color: #55555500; /* Transparent background */
+    color: rgb(27, 27, 27); /* Button text color */
+    padding: 10px 20px;
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(2px); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0); /* Light border */
+    transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.more-button:hover, .info-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.more-button::before {
+    content: "";
+    font-size: 20px;
+    margin-right: 10px; /* Spacing between icon and text */
+    transition: transform 0.3s ease; /* Smooth transition for icon rotation */
+}
+
+.more-button.expanded::before {
+    content: ""; /* Change the icon when expanded */
+    /* content: "˄"; Change the icon when expanded */
+}
+
+/* .expanded-section { */
+    /* position: relative; */
+    /* display: flex; */
+    /* flex-direction: column; Stack About and Contact vertically */
+    /* align-items: flex-end; */
+    /* gap: 10px; Space between About and Contact buttons */
+/* } */
+
+#arrowimg{
+    margin-right: 10px;
+    transform: rotate(-180deg);
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+#arrowimg.rotated {
+    transform: rotate(0deg); /* Rotate the image by 180 degrees */
+}
+
+/* Hidden state of the expanded-section */
+.expanded-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(0%); /* Hidden below the More button */
+    transition: opacity 0.3s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.expanded-section.visible {
+    opacity: 1;
+    transform: translateY(-60%); /* Slide the section up above the More button */
+    animation: bounceIn 0.6s; /* Bounce in animation */
+}
+
+.expanded-section.hidden {
+    animation: bounceOut 0.6s; /* Bounce out animation */
+}
+
+/* Styling for info buttons (About, Contact) */
+.info-button {
+    background-color: rgba(255, 255, 255, 0.031); /* Semi-transparent background */
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.more-button:active, .info-button:active {
+    transform: scale(0.95); /* Shrink the button briefly when clicked */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Change the shadow slightly */
+}
+
+/* Click interaction */
+.more-button:active, .info-button:active {
+    transform: scale(0.95); /* Shrink button on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Temporary shadow change */
+}
+
+
+
+@keyframes bounce {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.05) translateY(-10px); }
+    100% { transform: scale(1) translateY(0); }
+}
+
+.info-button.bouncing {
+    animation: bounce 0.6s ease;
+}
+
+
+#about-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent element or set your own */
+    font-size: 1rem; /* Set font size as needed */
+    padding: 0; /* Remove padding if any */
+    border: none; /* Remove any borders */
+    background: none; /* Remove background */
+    cursor: pointer; /* Ensure it still looks clickable */
+    transition: color 0.3s ease; /* Smooth transition for color changes */
+}
+
+#content{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#para{
+    margin-left: 50px;
+    margin-bottom: 50px;
+}

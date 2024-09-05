@@ -1,0 +1,39 @@
+<h1>About</h1>
+
+<p id="para">Welcome to [Your Project Name], a groundbreaking initiative designed to bridge the communication gap between deaf and hearing individuals. Our innovative platform leverages advanced machine learning technology to translate sign language into spoken or written language in real-time, making communication seamless and inclusive for everyone.
+</p>
+
+<h2>
+Our Mission:
+</h2>
+
+<p id="para">
+     At [Your Project Name], we believe that effective communication is a fundamental right. Our mission is to empower deaf individuals by providing them with a tool that facilitates natural and meaningful conversations with hearing individuals. We are committed to fostering an inclusive environment where everyone can connect, share ideas, and collaborate effortlessly.
+</p>
+
+<h2>
+How It Works:
+</h2>
+
+<p id="para">
+     Our platform is built around a sophisticated video call interface that incorporates state-of-the-art machine learning algorithms. During a video call, our system captures sign language gestures and translates them into normal language with high accuracy. The translated text is then displayed in real-time, ensuring that conversations flow smoothly and naturally.
+</p>
+
+<h2>
+Key Features:
+</h2>
+
+<p id="para">
+     Real-Time Translation: Instant translation of sign language into text, enabling seamless communication during video calls.
+User-Friendly Interface: An intuitive video call interface designed for ease of use, with customizable settings to suit individual preferences.
+Privacy and Security: Robust privacy features to ensure that all conversations remain confidential and secure.
+</p>
+
+<h2>
+Our Vision:
+</h2>
+<p id="para">
+     We envision a world where language is no longer a barrier to communication. By harnessing the power of technology, we aim to create a more inclusive society where everyone, regardless of their hearing ability, can engage in meaningful dialogue and connect with others on a deeper level.
+
+Thank you for visiting [Your Project Name]. We are excited to be part of this journey towards greater inclusivity and look forward to seeing how our platform can make a positive impact in your life.
+</p id="para">

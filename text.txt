@@ -1,0 +1,33 @@
+.button-container {
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 15px; /* Padding inside the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px); /* Gaussian blur effect */
+    border: 1px solid rgba(255, 255, 255, 0); /* Light border to enhance glass effect */
+    z-index: 10;
+}
+
+
+
+.button-container {
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 15px; /* Padding inside the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px); /* Gaussian blur effect */
+    border: 1px solid rgba(255, 255, 255, 0); /* Light border to enhance glass effect */
+    position: relative; /* Ensure it stays in place */
+    z-index: 10; /* Keeps it above other elements */
+    /* Adding a margin to keep it centered */
+    margin-top: 11vw;
+    /* Add padding if needed to compensate for any shifting */
+    padding: 20px;
+    position: fixed;
+}

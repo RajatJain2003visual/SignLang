@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video Call with Sign Language Recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles3.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><span id="logo">Sign</span> Video Call</a>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row mb-3 justify-content-center">
+            <div id="user-name" class="text-center"></div>
+        </div>
+        <div id="videos" class="mt-4" data-label="Video player">
+            <div id="video-wrapper" class="position-relative">
+                <div id="waiting" class="btn btn-warning text-center">Waiting for answer...</div>
+                <video class="video-player" id="local-video" autoplay playsinline loop muted>
+                    <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            <video class="video-player" id="remote-video" autoplay playsinline loop muted> 
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- <div id="tooltip" class="tooltip">Video player</div> Tooltip div -->
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <div class="button-container">
+                <button id="call" class="btn btn-success mx-2" data-label="Call">
+                    <i class="fas fa-phone"></i> <!-- Call icon -->
+                    <img src="call.svg" alt="Call Icon" width="30" height="30">
+                    
+                </button>
+                <button id="hangup" class="btn btn-danger mx-2" data-label="Hangup">
+                    <i class="fas fa-phone-slash"></i> <!-- Hangup icon -->
+                    <img src="hangup.svg" alt="Call Icon" width="30" height="30">
+                    
+                </button>
+                <button id="capture-frame" class="btn btn-secondary mx-2" data-label="Capture frame">
+                    <img src="camera.svg" alt="Call Icon" width="30" height="30">
+                    
+                </button>
+            </div>
+        </div>
+        <!-- <div id="more-button" class="more-button">
+            More
+        </div>
+        <div id="expanded-section" class="expanded-section">
+            <div class="info-section">
+                <button id="close-button" class="btn btn-secondary">X</button>
+                <div class="info-item">
+                    <h4>About</h4>
+
+                </div>
+                <div class="info-item">
+                    <h4>Contact</h4>
+                </div>
+            </div>
+        </div>
+         -->
+         <!-- <div class="more-button-container">
+            <div id="expanded-section" class="expanded-section">
+                <button id="close-button">˅</button>
+                <div class="info-section">
+                    <div class="info-item">
+                        About
+                    </div>
+                    <div class="info-item">
+                        Contact
+                    </div>
+                </div>
+            </div>
+            <div id="more-button" class="more-button">
+                More
+            </div>
+        </div> -->
+        <div class="more-button-container">
+            <!-- <div class="expanded-section">
+                <button class="info-button">About</button>
+                <button class="info-button">Contact</button>
+            </div> -->
+            <div class="expanded-section">
+                <a href="about.html" class="info-button">About</a>
+                <a href="contact.html" class="info-button">Contact</a>
+            </div>
+            <button class="more-button" onclick="toggleMenu()"><img src="arrow.svg" alt="Arrow Icon" width="30" height="30" id="arrowimg"></img>More</button>
+        </div>
+        
+        
+        
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src='scripts.js'></script>
+    <script src='socketListeners.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>
